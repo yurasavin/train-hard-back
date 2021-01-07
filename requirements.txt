@@ -27,3 +27,6 @@ pep8-naming
 
 # SDKs
 sentry-sdk==0.19.5
+
+# Temp
+django-cors-headers==3.6.0
