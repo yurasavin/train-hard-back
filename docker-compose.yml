@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/opt/app
     working_dir: /opt/app
-    command: ./compose/django/start_local_django
+    command: ./compose/django/start
     env_file:
       - .env
     ports:
