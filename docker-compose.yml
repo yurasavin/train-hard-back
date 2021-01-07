@@ -25,5 +25,5 @@ services:
       - "./static:/www/static"
       - "./media:/www/media"
     ports:
-      - "train-hard.me:80:80"
+      - "0.0.0.0:80:80"
     restart: always
