@@ -1,0 +1,29 @@
+# Core
+Django==3.1.5
+djangorestframework==3.12.2
+django-filter==2.4.0
+drf-yasg==1.20.0
+psycopg2-binary==2.8.6
+django-environ==0.4.5
+gunicorn==20.0.4
+
+# Linting
+dlint
+flake8
+flake8-bandit
+flake8-blind-except
+flake8-builtins
+flake8-commas
+flake8-comprehensions
+flake8-debugger
+flake8-django
+flake8-eradicate
+flake8-import-order
+flake8-mutable
+flake8-print
+flake8-type-annotations
+flake8-quotes
+pep8-naming
+
+# SDKs
+sentry-sdk==0.19.5

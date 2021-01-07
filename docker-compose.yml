@@ -1,0 +1,29 @@
+version: '3.7'
+
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    volumes:
+      - .:/opt/app
+    working_dir: /opt/app
+    command: ./compose/django/start_local_django
+    env_file:
+      - .env
+    ports:
+      - "0.0.0.0:8000:8000"
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - django
+    volumes:
+      - "./compose/nginx/conf.d:/etc/nginx/conf.d"
+      - "./static:/www/static"
+      - "./media:/www/media"
+    ports:
+      - "train-hard.me:80:80"
+    restart: always
