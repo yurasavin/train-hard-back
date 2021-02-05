@@ -89,6 +89,8 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 DATABASES = {
     'default': env.db(),
 }
+if not DEBUG:
+    CONN_MAX_AGE = None
 
 
 # Internationalization
