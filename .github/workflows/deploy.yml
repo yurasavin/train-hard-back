@@ -60,6 +60,12 @@ jobs:
             arg1=value1
             arg2=value2
 
+  deploy_to_server:
+    needs: push_to_registry
+    name: Deploy project
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy on the server
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
