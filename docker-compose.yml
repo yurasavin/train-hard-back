@@ -2,9 +2,7 @@ version: '3.7'
 
 services:
   django:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile
+    image: iriskin/train-hard-backend:latest
     volumes:
       - ./static:/opt/app/static
     env_file:
