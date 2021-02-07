@@ -1,19 +1,14 @@
 version: '3.7'
 
-
 services:
   django:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
     volumes:
-      - .:/opt/app
-    working_dir: /opt/app
-    command: ./compose/django/start
+      - ./static:/opt/app/static
     env_file:
       - .env
-    ports:
-      - "8000"
     restart: always
 
   nginx:
@@ -21,9 +16,9 @@ services:
     depends_on:
       - django
     volumes:
-      - "./compose/nginx/conf.d:/etc/nginx/conf.d"
-      - "./static:/www/static"
-      - "./media:/www/media"
+      - ./compose/nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/www/static
+      - ./media:/www/media
     ports:
-      - "0.0.0.0:8888:80"
+      - "0.0.0.0:80:80"
     restart: always

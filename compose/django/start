@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd src
-
-python manage.py migrate
-python manage.py collectstatic --noinput
-
-gunicorn conf.wsgi:application -c /opt/app/compose/django/gunicorn.conf.py
