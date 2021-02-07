@@ -66,6 +66,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - name: Deploy on the server
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
