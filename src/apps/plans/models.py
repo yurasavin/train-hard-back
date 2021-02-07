@@ -37,8 +37,14 @@ class TrainigPlan(models.Model):
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.id
+
 
 class Schedule(models.Model):
     weekday = models.PositiveIntegerField(choices=PythonWeekdays.choices)
     program = models.ForeignKey('programs.Program', on_delete=models.PROTECT)
     training_plan = models.ForeignKey(TrainigPlan, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id

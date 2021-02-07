@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.training_history.models import TrainingHistory, ExerciseDone
+from apps.training_history.models import ExerciseDone, TrainingHistory
 
 
 class TrainingHistoryAdmin(admin.ModelAdmin):

@@ -37,7 +37,9 @@ class Exercise(models.Model):
         ordering = ['program_id', 'order']
 
     def __str__(self) -> str:
-        return f'{self.name}: {self.approaches}x{self.repeats} ({self.weight} кг)'
+        return (
+            f'{self.name}: {self.approaches}x{self.repeats} ({self.weight} кг)'
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

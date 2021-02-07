@@ -6,6 +6,9 @@ class TrainingHistory(models.Model):
     end = models.DateTimeField(null=True)
     program = models.ForeignKey('programs.Program', on_delete=models.PROTECT)
 
+    def __str__(self):
+        return f'{self.start}:{self.end}'
+
 
 class ExerciseDone(models.Model):
     training_history = models.ForeignKey(
@@ -13,3 +16,6 @@ class ExerciseDone(models.Model):
     exercise = models.ForeignKey('programs.Exercise', on_delete=models.PROTECT)
     repeat = models.IntegerField()
     duration_seconds = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.id}-{self.repeat}'
