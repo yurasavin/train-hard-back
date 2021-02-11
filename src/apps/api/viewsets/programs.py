@@ -10,8 +10,7 @@ class ProgramViewSet(ListModelMixin, GenericViewSet):
     serializer_class = ProgramSerializer
 
     def get_queryset(self):
-        user_id = self.request.query_params.get('user_id')
-        return self.queryset.filter(owner_id=user_id)
+        return self.queryset.filter(owner_id=self.request.user.id)
 
 
 class ExerciseViewSet(ListModelMixin, GenericViewSet):
@@ -20,4 +19,6 @@ class ExerciseViewSet(ListModelMixin, GenericViewSet):
 
     def get_queryset(self):
         program_id = self.request.query_params.get('program_id')
-        return self.queryset.filter(program_id=program_id)
+        return self.queryset.filter(
+            program__owner_id=self.request.user.id,
+            program_id=program_id)
