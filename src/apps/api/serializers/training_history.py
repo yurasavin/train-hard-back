@@ -7,14 +7,14 @@ class CreateTrainingHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TrainingHistory
-        fields = ['program']
+        fields = ['training']
 
 
 class TrainingHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TrainingHistory
-        fields = ['id', 'program', 'start', 'end']
+        fields = ['id', 'training', 'start', 'end']
 
 
 class ExerciseDoneSerializer(serializers.ModelSerializer):

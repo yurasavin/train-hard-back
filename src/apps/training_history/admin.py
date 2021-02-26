@@ -6,7 +6,7 @@ from apps.training_history.models import ExerciseDone, TrainingHistory
 class TrainingHistoryAdmin(admin.ModelAdmin):
     list_display = [
         'id',
-        'program',
+        'training',
         'start',
         'end',
     ]

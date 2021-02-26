@@ -6,6 +6,8 @@ class User(AbstractUser):
     birthday = models.DateField(null=True)
     weight = models.DecimalField(max_digits=5, decimal_places=2, null=True)
     height = models.PositiveSmallIntegerField(null=True)
+    email = models.EmailField(
+        blank=True, unique=True, null=True, db_index=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

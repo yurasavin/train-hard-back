@@ -4,7 +4,7 @@ from django.db import models
 class TrainingHistory(models.Model):
     start = models.DateTimeField(auto_now_add=True)
     end = models.DateTimeField(null=True)
-    program = models.ForeignKey('programs.Program', on_delete=models.PROTECT)
+    training = models.ForeignKey('programs.Training', on_delete=models.PROTECT)
 
     def __str__(self):
         return f'{self.start}:{self.end}'

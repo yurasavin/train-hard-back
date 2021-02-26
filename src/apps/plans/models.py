@@ -43,7 +43,7 @@ class TrainigPlan(models.Model):
 
 class Schedule(models.Model):
     weekday = models.PositiveIntegerField(choices=PythonWeekdays.choices)
-    program = models.ForeignKey('programs.Program', on_delete=models.PROTECT)
+    training = models.ForeignKey('programs.Training', on_delete=models.PROTECT)
     training_plan = models.ForeignKey(TrainigPlan, on_delete=models.CASCADE)
 
     def __str__(self):

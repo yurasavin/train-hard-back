@@ -1,12 +1,13 @@
 from django.contrib import admin
 
-from apps.programs.models import Exercise, ExerciseHistory, Program
+from apps.programs.models import (Exercise, ExerciseHistory, HelpForFriend,
+                                  Program, Training)
 
 
 class ExerciseAdmin(admin.ModelAdmin):
     list_display = [
         'id',
-        'program',
+        'training',
         'order',
         'name',
         'inventory',
@@ -27,16 +28,26 @@ class ExerciseHistoryAdmin(admin.ModelAdmin):
     ]
 
 
-class ProgramAdmin(admin.ModelAdmin):
+class TrainingAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'name',
-        'owner',
+        'program',
         'rest_between_exercises',
         'rest_between_repeats',
     ]
 
 
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'name',
+        'owner',
+    ]
+
+
 admin.site.register(Exercise, ExerciseAdmin)
 admin.site.register(ExerciseHistory, ExerciseHistoryAdmin)
+admin.site.register(Training, TrainingAdmin)
 admin.site.register(Program, ProgramAdmin)
+admin.site.register(HelpForFriend)

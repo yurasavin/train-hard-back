@@ -6,8 +6,17 @@ class Program(models.Model):
     name = models.CharField(max_length=150)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.name
+
+
+class Training(models.Model):
+    name = models.CharField(max_length=150)
     rest_between_exercises = models.DurationField()
     rest_between_repeats = models.DurationField()
+    program = models.ForeignKey(
+        Program, on_delete=models.CASCADE, null=True, related_name='trainings')
 
     def __str__(self) -> str:
         return self.name
@@ -29,12 +38,12 @@ class Exercise(models.Model):
     approaches = models.PositiveSmallIntegerField('Подходов', default=1)
     repeats = models.PositiveSmallIntegerField('Повторений', default=1)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
-    program = models.ForeignKey(
-        Program, verbose_name='Программа', on_delete=models.SET_NULL,
-        null=True)
+    training = models.ForeignKey(
+        Training, verbose_name='Тренировка', on_delete=models.SET_NULL,
+        null=True, related_name='exercises')
 
     class Meta:
-        ordering = ['program_id', 'order']
+        ordering = ['training_id', 'order']
 
     def __str__(self) -> str:
         return (
@@ -70,3 +79,7 @@ class ExerciseHistory(models.Model):
 
     def __str__(self) -> str:
         return str(self.exercise)
+
+
+class HelpForFriend(models.Model):
+    file = models.FileField()
