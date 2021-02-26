@@ -83,3 +83,6 @@ class ExerciseHistory(models.Model):
 
 class HelpForFriend(models.Model):
     file = models.FileField()
+
+    def __str__(self) -> str:
+        return str(self.id)
