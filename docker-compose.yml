@@ -23,6 +23,8 @@ services:
       - ./compose/nginx/conf.d:/etc/nginx/conf.d
       - ./static:/www/static
       - ./media:/www/media
+    ports:
+      - "80"
     networks:
       - train-hard
     restart: always
