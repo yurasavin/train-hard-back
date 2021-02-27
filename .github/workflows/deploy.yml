@@ -56,9 +56,6 @@ jobs:
           file: ./compose/django/Dockerfile
           push: true
           tags: iriskin/train-hard-backend:latest
-          build-args: |
-            arg1=value1
-            arg2=value2
 
   deploy_to_server:
     needs: push_to_registry

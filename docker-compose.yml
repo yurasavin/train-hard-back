@@ -15,7 +15,7 @@ services:
       - train-hard
     restart: always
 
-  nginx:
+  django-static:
     image: nginx:latest
     depends_on:
       - django
@@ -23,8 +23,6 @@ services:
       - ./compose/nginx/conf.d:/etc/nginx/conf.d
       - ./static:/www/static
       - ./media:/www/media
-    ports:
-      - "8000"
     networks:
       - train-hard
     restart: always
