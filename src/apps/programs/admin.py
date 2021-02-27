@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from apps.programs.models import (Exercise, ExerciseHistory, HelpForFriend,
-                                  Program, Training)
+from apps.programs.models import Exercise, ExerciseHistory, Program, Training
 
 
 class ExerciseAdmin(admin.ModelAdmin):
@@ -50,4 +49,3 @@ admin.site.register(Exercise, ExerciseAdmin)
 admin.site.register(ExerciseHistory, ExerciseHistoryAdmin)
 admin.site.register(Training, TrainingAdmin)
 admin.site.register(Program, ProgramAdmin)
-admin.site.register(HelpForFriend)

@@ -1,5 +1,9 @@
 version: '3.7'
 
+networks:
+  train-hard:
+    external: true
+
 services:
   django:
     image: iriskin/train-hard-backend:latest
@@ -7,6 +11,8 @@ services:
       - ./static:/opt/app/static
     env_file:
       - .env
+    networks:
+      - train-hard
     restart: always
 
   nginx:
@@ -18,5 +24,7 @@ services:
       - ./static:/www/static
       - ./media:/www/media
     ports:
-      - "0.0.0.0:80:80"
+      - "8000"
+    networks:
+      - train-hard
     restart: always

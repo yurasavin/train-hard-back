@@ -28,9 +28,7 @@ flake8-print
 flake8-type-annotations
 flake8-quotes
 pep8-naming
+isort
 
 # SDKs
 sentry-sdk==0.19.5
-
-# Temp
-django-cors-headers==3.6.0

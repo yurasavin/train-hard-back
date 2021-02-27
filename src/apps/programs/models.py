@@ -79,10 +79,3 @@ class ExerciseHistory(models.Model):
 
     def __str__(self) -> str:
         return str(self.exercise)
-
-
-class HelpForFriend(models.Model):
-    file = models.FileField()
-
-    def __str__(self) -> str:
-        return str(self.id)
