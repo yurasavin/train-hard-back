@@ -25,6 +25,8 @@ services:
       - ./media:/www/media
     ports:
       - "80"
+    environment:
+      - NGINX_PORT=80
     networks:
       - train-hard
     restart: always
